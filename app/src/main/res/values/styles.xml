@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/nissan_orange</item>
+        <item name="colorPrimaryDark">@color/nissan_orange_dark</item>
+        <item name="colorAccent">@color/nissan_orange</item>
+        <item name="android:windowBackground">@color/bg_light</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+</resources>

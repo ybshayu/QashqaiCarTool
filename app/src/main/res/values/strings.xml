@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">逍客车机工具</string>
+    <string name="accessibility_service_desc">用于监听车机物理按键事件，包括日产方控按键。</string>
+    <string name="card_logs">日志读取</string>
+    <string name="card_key_monitor">按键监听</string>
+    <string name="card_nissan_tools">日产工具</string>
+    <string name="card_settings">系统设置</string>
+    <string name="log_count">日志数量: %d</string>
+    <string name="key_count">按键次数: %d</string>
+    <string name="search_hint">输入关键词过滤…</string>
+    <string name="auto_scroll">自动滚动</string>
+    <string name="clear_logs">清空</string>
+    <string name="start_log">开始</string>
+    <string name="stop_log">停止</string>
+    <string name="export_logs">导出日志</string>
+    <string name="auto_hotspot">开机自动热点</string>
+    <string name="bluetooth_restart">蓝牙自动重启</string>
+    <string name="headlight_theme">大灯联动主题</string>
+    <string name="adb_debug">ADB调试开关</string>
+    <string name="restart_app">重启应用</string>
+    <string name="export_system_logs">导出系统日志</string>
+    <string name="accessibility_guide">请开启无障碍服务以监听按键</string>
+    <string name="open_accessibility">开启无障碍服务</string>
+    <string name="service_enabled">服务已开启</string>
+    <string name="service_disabled">服务未开启</string>
+    <string name="about_title">关于</string>
+    <string name="version_info">版本 1.0.0 (API 19)</string>
+</resources>
