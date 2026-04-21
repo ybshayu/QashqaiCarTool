@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches: [ "main", "master" ]
-  workflow_dispatch:   # 允许手动触发
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,11 +22,29 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Get version name and set timestamp
+        id: version
+        run: |
+          # 从 build.gradle 中提取 versionName
+          VERSION=$(grep -oP 'versionName\s+"\K[^"]+' app/build.gradle)
+          echo "VERSION_NAME=$VERSION" >> $GITHUB_OUTPUT
+
+          # 生成日期时间戳 (格式: 20260421-153000)
+          BUILD_TIME=$(date +'%Y%m%d-%H%M%S')
+          echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_OUTPUT
+
+          # 获取短 commit hash
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_OUTPUT
+
       - name: Build debug APK
-        run: ./gradlew assembleDebug
+        run: |
+          ./gradlew assembleDebug
+          # 重命名生成的 APK 文件
+          mv app/build/outputs/apk/debug/app-debug.apk "app/build/outputs/apk/debug/NissanAJ-${{ steps.version.outputs.VERSION_NAME }}-${{ steps.version.outputs.BUILD_TIME }}.apk"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: NissanAJ-${{ steps.version.outputs.BUILD_TIME }}-${{ steps.version.outputs.COMMIT_HASH }}
+          path: app/build/outputs/apk/debug/NissanAJ-*.apk
