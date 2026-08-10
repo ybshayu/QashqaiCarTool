@@ -37,7 +37,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="landscape"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,10 +45,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LogReaderActivity" android:screenOrientation="sensorLandscape" />
-        <activity android:name=".KeyMonitorActivity" android:screenOrientation="sensorLandscape" />
-        <activity android:name=".NissanToolsActivity" android:screenOrientation="sensorLandscape" />
-        <activity android:name=".SettingsActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".LogReaderActivity" android:screenOrientation="landscape" />
+        <activity android:name=".KeyMonitorActivity" android:screenOrientation="landscape" />
+        <activity android:name=".NissanToolsActivity" android:screenOrientation="landscape" />
+        <activity android:name=".SettingsActivity" android:screenOrientation="landscape" />
+        <activity android:name=".VehicleInfoActivity" android:screenOrientation="landscape" />
 
         <receiver android:name=".BootReceiver" android:enabled="true" android:exported="true">
             <intent-filter android:priority="1000">

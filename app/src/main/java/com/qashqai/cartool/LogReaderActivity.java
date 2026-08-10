@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -23,7 +24,7 @@ import com.qashqai.cartool.utils.LogcatReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LogReaderActivity extends AppCompatActivity implements LogcatReader.LogListener {
+public class LogReaderActivity extends BaseActivity implements LogcatReader.LogListener {
 
     private static final int PERMISSION_REQUEST_CODE = 100;
 
@@ -44,6 +45,10 @@ public class LogReaderActivity extends AppCompatActivity implements LogcatReader
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_reader);
+
+        ImageButton btnBack = findViewById(R.id.btn_back);
+        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
+        setupThemeToggle(R.id.btn_theme_toggle);
 
         initViews();
         checkPermissions();

@@ -8,6 +8,15 @@ public class SharedPrefsHelper {
     public static final String KEY_AUTO_HOTSPOT = "auto_hotspot";
     public static final String KEY_BLUETOOTH_RESTART = "bluetooth_restart";
     public static final String KEY_HEADLIGHT_THEME = "headlight_theme";
+    public static final String KEY_NIGHT_MODE = "night_mode";
+
+    public static boolean getNightMode(Context context) {
+        return getBoolean(context, KEY_NIGHT_MODE, true);
+    }
+
+    public static void setNightMode(Context context, boolean value) {
+        putBoolean(context, KEY_NIGHT_MODE, value);
+    }
 
     private static SharedPreferences getPrefs(Context context) {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);

@@ -1,4 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">28dp</dimen>
+    <dimen name="activity_vertical_margin">28dp</dimen>
+
+    <!-- Dashboard -->
+    <dimen name="header_height">104dp</dimen>
+    <dimen name="footer_height">64dp</dimen>
+    <dimen name="tile_min_height">196dp</dimen>
+    <dimen name="tile_radius">22dp</dimen>
+    <dimen name="tile_icon_badge">96dp</dimen>
+    <dimen name="tile_icon_text">42sp</dimen>
+    <dimen name="card_radius">18dp</dimen>
+    <dimen name="chip_radius">20dp</dimen>
+
+    <!-- Touch targets (driving-friendly, manual requirement) -->
+    <dimen name="button_height">66dp</dimen>
+    <dimen name="min_touch">72dp</dimen>
+
+    <!-- Typography (landscape 1920x1080) -->
+    <dimen name="text_app_title">34sp</dimen>
+    <dimen name="text_app_subtitle">17sp</dimen>
+    <dimen name="text_clock">30sp</dimen>
+    <dimen name="text_section">19sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_log">15sp</dimen>
+
+    <dimen name="gap_small">12dp</dimen>
+    <dimen name="gap">20dp</dimen>
+    <dimen name="gap_large">28dp</dimen>
 </resources>

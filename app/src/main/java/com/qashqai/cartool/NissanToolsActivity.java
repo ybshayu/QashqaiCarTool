@@ -2,11 +2,11 @@ package com.qashqai.cartool;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class NissanToolsActivity extends AppCompatActivity {
+public class NissanToolsActivity extends BaseActivity {
 
     private Switch switchHotspot, switchBluetooth, switchTheme;
 
@@ -20,6 +20,7 @@ public class NissanToolsActivity extends AppCompatActivity {
         switchTheme = findViewById(R.id.switch_headlight_theme);
         Button btnExportLogs = findViewById(R.id.btn_export_system_logs);
         Button btnRestart = findViewById(R.id.btn_restart_app);
+        ImageButton btnBack = findViewById(R.id.btn_back);
 
         switchHotspot.setChecked(SharedPrefsHelper.getBoolean(this, SharedPrefsHelper.KEY_AUTO_HOTSPOT, false));
         switchBluetooth.setChecked(SharedPrefsHelper.getBoolean(this, SharedPrefsHelper.KEY_BLUETOOTH_RESTART, false));
@@ -37,7 +38,10 @@ public class NissanToolsActivity extends AppCompatActivity {
 
         switchTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
             SharedPrefsHelper.putBoolean(this, SharedPrefsHelper.KEY_HEADLIGHT_THEME, isChecked);
-            Toast.makeText(this, isChecked ? "大灯联动主题已启用" : "已禁用", Toast.LENGTH_SHORT).show();
+            SharedPrefsHelper.setNightMode(this, isChecked);
+            BaseActivity.applyGlobalNightMode(isChecked);
+            Toast.makeText(this, isChecked ? "大灯联动：夜间模式" : "大灯联动：日间模式", Toast.LENGTH_SHORT).show();
+            recreate();
         });
 
         btnExportLogs.setOnClickListener(v ->
@@ -46,5 +50,8 @@ public class NissanToolsActivity extends AppCompatActivity {
         btnRestart.setOnClickListener(v -> {
             android.os.Process.killProcess(android.os.Process.myPid());
         });
+
+        btnBack.setOnClickListener(v -> finish());
+        setupThemeToggle(R.id.btn_theme_toggle);
     }
 }

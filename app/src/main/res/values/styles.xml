@@ -1,11 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/nissan_orange</item>
-        <item name="colorPrimaryDark">@color/nissan_orange_dark</item>
-        <item name="colorAccent">@color/nissan_orange</item>
-        <item name="android:windowBackground">@color/bg_light</item>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/color_accent</item>
+        <item name="colorPrimaryDark">@color/color_accent_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:windowBackground">@color/color_bg</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
+        <item name="android:statusBarColor">@color/color_bg</item>
+        <item name="android:navigationBarColor">@color/color_bg</item>
+        <item name="android:textColorPrimary">@color/color_text</item>
+        <item name="android:textColorSecondary">@color/color_text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:buttonStyle">@style/PrimaryButton</item>
+    </style>
+
+    <!-- Large primary (accent) button -->
+    <style name="PrimaryButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/color_on_accent</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <!-- Outline / ghost button -->
+    <style name="GhostButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_button_ghost</item>
+        <item name="android:textColor">@color/color_accent</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="TileTitle">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">@color/color_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TileSubtitle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/color_text_secondary</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/color_accent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SpecLabel">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_text_secondary</item>
+    </style>
+
+    <style name="SpecValue">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SpecRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+    </style>
+
+    <style name="SpecDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/color_border</item>
     </style>
 </resources>

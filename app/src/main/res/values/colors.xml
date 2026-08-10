@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ===== Semantic palette (DAY) ===== -->
+    <color name="color_bg">#EEF1F5</color>
+    <color name="color_bg_gradient">#E1E8F0</color>
+    <color name="color_surface">#FFFFFF</color>
+    <color name="color_surface_variant">#F1F4F8</color>
+    <color name="color_surface_2">#E7EDF3</color>
+    <color name="color_border">#D4DCE5</color>
+
+    <color name="color_text">#0F172A</color>
+    <color name="color_text_secondary">#566273</color>
+    <color name="color_text_tertiary">#8A95A3</color>
+
+    <color name="color_accent">#F97316</color>
+    <color name="color_accent_dark">#EA580C</color>
+    <color name="color_accent_soft">#FF9A4D</color>
+    <color name="color_cyan">#0284C7</color>
+    <color name="color_green">#16A34A</color>
+    <color name="color_red">#DC2626</color>
+    <color name="color_yellow">#CA8A04</color>
+
+    <color name="color_on_accent">#FFFFFF</color>
+    <color name="color_scrim">#000000</color>
+
+    <!-- ===== Legacy names (kept for safety) ===== -->
     <color name="nissan_orange">#F97316</color>
     <color name="nissan_orange_dark">#EA580C</color>
-    <color name="success_green">#10B981</color>
-    <color name="error_red">#EF4444</color>
-    <color name="bg_light">#F3F4F6</color>
+    <color name="success_green">#16A34A</color>
+    <color name="error_red">#DC2626</color>
+    <color name="bg_light">#EEF1F5</color>
     <color name="card_white">#FFFFFF</color>
-    <color name="text_primary">#111827</color>
-    <color name="text_secondary">#6B7280</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#566273</color>
 </resources>

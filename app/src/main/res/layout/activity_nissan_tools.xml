@@ -1,128 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/bg_light">
+    android:background="@drawable/bg_dashboard">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="网络工具"
-        android:textSize="18sp"
-        android:textColor="@color/nissan_orange_dark"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
-
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:orientation="vertical"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
 
+            <!-- Top bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/header_height"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="@dimen/min_touch"
+                    android:layout_height="@dimen/min_touch"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/back"
+                    app:srcCompat="@drawable/ic_back"
+                    app:tint="@color/color_accent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/card_nissan_tools"
+                    android:textColor="@color/color_text"
+                    android:textSize="@dimen/text_app_title"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_theme_toggle"
+                    android:layout_width="@dimen/min_touch"
+                    android:layout_height="@dimen/min_touch"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/theme_toggle"
+                    app:srcCompat="@drawable/ic_sun"
+                    app:tint="@color/color_accent" />
+            </LinearLayout>
+
+            <!-- 网络工具 -->
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/auto_hotspot"
-                android:textSize="16sp"/>
-
-            <Switch
-                android:id="@+id/switch_auto_hotspot"
+                style="@style/SectionTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/auto_hotspot" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginEnd="14dp"
+                            app:srcCompat="@drawable/ic_wifi"
+                            app:tint="@color/color_accent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/auto_hotspot"
+                            android:textColor="@color/color_text"
+                            android:textSize="@dimen/text_body" />
+
+                        <Switch
+                            android:id="@+id/switch_auto_hotspot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_border" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginEnd="14dp"
+                            app:srcCompat="@drawable/ic_bluetooth"
+                            app:tint="@color/color_accent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/bluetooth_restart"
+                            android:textColor="@color/color_text"
+                            android:textSize="@dimen/text_body" />
+
+                        <Switch
+                            android:id="@+id/switch_bluetooth_restart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 主题工具 -->
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/bluetooth_restart"
-                android:textSize="16sp"/>
-
-            <Switch
-                android:id="@+id/switch_bluetooth_restart"
+                style="@style/SectionTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/headlight_theme" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="主题工具"
-        android:textSize="18sp"
-        android:textColor="@color/nissan_orange_dark"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="18dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginEnd="14dp"
+                        app:srcCompat="@drawable/ic_moon"
+                        app:tint="@color/color_accent" />
 
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/headlight_theme"
+                            android:textColor="@color/color_text"
+                            android:textSize="@dimen/text_body" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/headlight_theme_desc"
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <Switch
+                        android:id="@+id/switch_headlight_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 系统工具 -->
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/headlight_theme"
-                android:textSize="16sp"/>
-
-            <Switch
-                android:id="@+id/switch_headlight_theme"
+                style="@style/SectionTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/restart_app" />
+
+            <Button
+                android:id="@+id/btn_export_system_logs"
+                style="@style/GhostButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/export_system_logs" />
+
+            <Button
+                android:id="@+id/btn_restart_app"
+                style="@style/PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:text="@string/restart_app" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="系统工具"
-        android:textSize="18sp"
-        android:textColor="@color/nissan_orange_dark"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
-
-    <Button
-        android:id="@+id/btn_export_system_logs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/export_system_logs"
-        android:background="@drawable/bg_button_nissan"
-        android:textColor="@color/card_white"
-        android:layout_marginBottom="8dp"/>
-
-    <Button
-        android:id="@+id/btn_restart_app"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/restart_app"
-        android:background="@drawable/bg_button_nissan"
-        android:textColor="@color/card_white"/>
-
-</LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -1,28 +1,123 @@
 <resources>
     <string name="app_name">逍客车机工具</string>
+    <string name="app_subtitle">逍客 / 启辰T70 车机工具箱</string>
+
     <string name="accessibility_service_desc">用于监听车机物理按键事件，包括日产方控按键。</string>
+
+    <!-- Dashboard tiles -->
     <string name="card_logs">日志读取</string>
+    <string name="card_logs_desc">实时抓取系统日志</string>
     <string name="card_key_monitor">按键监听</string>
+    <string name="card_key_monitor_desc">方控 / 物理按键事件</string>
     <string name="card_nissan_tools">日产工具</string>
+    <string name="card_nissan_tools_desc">热点 / 蓝牙 / 主题</string>
+    <string name="card_vehicle">车辆参数</string>
+    <string name="card_vehicle_desc">系统 / 车型规格</string>
     <string name="card_settings">系统设置</string>
+    <string name="card_settings_desc">关于与外观</string>
+
+    <!-- Footer / status -->
+    <string name="status_online">系统就绪</string>
+    <string name="back">返回</string>
+    <string name="theme_toggle">切换昼夜</string>
+    <string name="theme_night">夜间模式</string>
+    <string name="theme_day">日间模式</string>
+
+    <!-- Log reader -->
     <string name="log_count">日志数量: %d</string>
-    <string name="key_count">按键次数: %d</string>
     <string name="search_hint">输入关键词过滤…</string>
     <string name="auto_scroll">自动滚动</string>
+    <string name="auto_scroll_on">自动滚动:开</string>
+    <string name="auto_scroll_off">自动滚动:关</string>
     <string name="clear_logs">清空</string>
     <string name="start_log">开始</string>
     <string name="stop_log">停止</string>
     <string name="export_logs">导出日志</string>
+
+    <!-- Nissan tools -->
     <string name="auto_hotspot">开机自动热点</string>
     <string name="bluetooth_restart">蓝牙自动重启</string>
     <string name="headlight_theme">大灯联动主题</string>
+    <string name="headlight_theme_desc">开启后自动切换夜间模式</string>
     <string name="adb_debug">ADB调试开关</string>
     <string name="restart_app">重启应用</string>
     <string name="export_system_logs">导出系统日志</string>
-    <string name="accessibility_guide">请开启无障碍服务以监听按键</string>
-    <string name="open_accessibility">开启无障碍服务</string>
+
+    <!-- Key monitor -->
     <string name="service_enabled">服务已开启</string>
     <string name="service_disabled">服务未开启</string>
+    <string name="open_accessibility">开启无障碍服务</string>
+    <string name="clear_history">清空历史</string>
+    <string name="recent_keys">最近按键事件</string>
+    <string name="key_action_down">按下</string>
+    <string name="key_action_up">释放</string>
+
+    <!-- Settings / About -->
     <string name="about_title">关于</string>
     <string name="version_info">版本 1.0.0 (API 19)</string>
+    <string name="settings_theme">外观主题</string>
+    <string name="settings_theme_desc">夜间模式更适合驾驶</string>
+    <string name="open_vehicle_info">查看车辆参数</string>
+
+    <!-- Vehicle info (from parameter manual) -->
+    <string name="vehicle_info_title">车辆参数</string>
+    <string name="vehicle_info_desc">本机系统规格 (源自车机参数手册)</string>
+
+    <string name="sec_overview">系统概述</string>
+    <string name="sys_version">系统版本</string>
+    <string name="sys_version_v">Android 4.4.3 (API 19)</string>
+    <string name="build_version">构建版本</string>
+    <string name="build_version_v">NTDA3_P350</string>
+    <string name="brand">品牌</string>
+    <string name="brand_v">日产 (NISSAN)</string>
+    <string name="manufacturer">制造商</string>
+    <string name="manufacturer_v">航盛电子 (HSAE)</string>
+    <string name="platform">平台</string>
+    <string name="platform_v">Freescale i.MX6 (SABRESD)</string>
+    <string name="cpu_arch">CPU 架构</string>
+    <string name="cpu_arch_v">ARMv7 (armeabi-v7a)</string>
+    <string name="device_model">设备型号</string>
+    <string name="device_model_v">S00.00</string>
+    <string name="product_model">产品型号</string>
+    <string name="product_model_v">NTDA3</string>
+    <string name="device_code">设备代号</string>
+    <string name="device_code_v">sabresd_6dq</string>
+
+    <string name="sec_display">显示参数</string>
+    <string name="screen_res">主屏分辨率</string>
+    <string name="screen_res_v">1920×1080 @ 60Hz</string>
+    <string name="support_res">支持分辨率</string>
+    <string name="support_res_v">1280×720, 1024×768</string>
+    <string name="orientation">屏幕方向</string>
+    <string name="orientation_v">横屏 (Landscape)</string>
+    <string name="device_type">设备类型</string>
+    <string name="device_type_v">Tablet</string>
+
+    <string name="sec_memory">内存配置</string>
+    <string name="dalvik_start">Dalvik 堆起始</string>
+    <string name="dalvik_start_v">8 MB</string>
+    <string name="dalvik_grow">堆增长限制</string>
+    <string name="dalvik_grow_v">64 MB</string>
+    <string name="dalvik_max">堆最大大小</string>
+    <string name="dalvik_max_v">384 MB</string>
+    <string name="timezone">时区</string>
+    <string name="timezone_v">Asia/Shanghai</string>
+
+    <string name="sec_model">车型信息</string>
+    <string name="car_model">车型</string>
+    <string name="car_model_v">启辰T70</string>
+    <string name="hw_version">硬件版本</string>
+    <string name="hw_version_v">S05.07</string>
+    <string name="fw_version">固件版本</string>
+    <string name="fw_version_v">VA1606XM_P200_20170331</string>
+
+    <string name="sec_apps">内置应用</string>
+    <string name="apps_sys">系统应用</string>
+    <string name="apps_sys_v">空调 / 车辆核心 / 蓝牙 / 收音机 / USB媒体 / 桌面 / 设置 / OTA / 语音 / 协议 / 应用商店</string>
+    <string name="apps_data">数据应用</string>
+    <string name="apps_data_v">导航 / CarLife / 车辆互联 / 讯飞语音 / 酷我音乐</string>
+
+    <string name="sec_data_iface">车辆数据接口</string>
+    <string name="data_iface_desc">可通过 AutoSDK 读取的实时车辆数据：</string>
+    <string name="data_iface_v">车速 · 发动机转速 · 油量/电量 · 室外温度 · 发动机温度 · 电瓶电压 · 车门状态 · 轮胎压力 · 总里程 · 续航里程</string>
 </resources>

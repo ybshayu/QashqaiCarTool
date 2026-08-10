@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dashboard">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+
+            <!-- Top bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/header_height"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="@dimen/min_touch"
+                    android:layout_height="@dimen/min_touch"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/back"
+                    app:srcCompat="@drawable/ic_back"
+                    app:tint="@color/color_accent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/vehicle_info_title"
+                    android:textColor="@color/color_text"
+                    android:textSize="@dimen/text_app_title"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_theme_toggle"
+                    android:layout_width="@dimen/min_touch"
+                    android:layout_height="@dimen/min_touch"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/theme_toggle"
+                    app:srcCompat="@drawable/ic_sun"
+                    app:tint="@color/color_accent" />
+            </LinearLayout>
+
+            <!-- Intro -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="22dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/vehicle_info_title"
+                        android:textColor="@color/color_accent"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/vehicle_info_desc"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="@dimen/text_body" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 系统概述 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/sec_overview" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/sys_version" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/sys_version_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/build_version" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/build_version_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/brand" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/brand_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/manufacturer" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/manufacturer_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/platform" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/platform_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/cpu_arch" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/cpu_arch_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/device_model" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/device_model_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/product_model" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/product_model_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/device_code" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/device_code_v" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 显示参数 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/sec_display" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/screen_res" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/screen_res_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/support_res" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/support_res_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/orientation" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/orientation_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/device_type" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/device_type_v" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 内存配置 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/sec_memory" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/dalvik_start" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/dalvik_start_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/dalvik_grow" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/dalvik_grow_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/dalvik_max" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/dalvik_max_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/timezone" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/timezone_v" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 车型信息 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/sec_model" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/car_model" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/car_model_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/hw_version" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/hw_version_v" />
+                    </LinearLayout>
+                    <View style="@style/SpecDivider" />
+
+                    <LinearLayout style="@style/SpecRow">
+                        <TextView style="@style/SpecLabel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/fw_version" />
+                        <TextView style="@style/SpecValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="end" android:text="@string/fw_version_v" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 内置应用 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/sec_apps" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView style="@style/SpecLabel" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/apps_sys" />
+                    <TextView style="@style/SpecValue" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/apps_sys_v" />
+
+                    <View style="@style/SpecDivider" android:layout_marginTop="14dp" android:layout_marginBottom="14dp" />
+
+                    <TextView style="@style/SpecLabel" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/apps_data" />
+                    <TextView style="@style/SpecValue" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/apps_data_v" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 车辆数据接口 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_marginBottom="@dimen/gap_small"
+                android:text="@string/sec_data_iface" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView style="@style/SpecLabel" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/data_iface_desc" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@string/data_iface_v"
+                        android:textColor="@color/color_accent"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

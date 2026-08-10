@@ -6,15 +6,17 @@ import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class KeyMonitorActivity extends AppCompatActivity
+public class KeyMonitorActivity extends BaseActivity
         implements KeyAccessibilityService.KeyEventListener {
 
     private RecyclerView recyclerView;
@@ -32,6 +34,7 @@ public class KeyMonitorActivity extends AppCompatActivity
         btnOpenService = findViewById(R.id.btn_open_accessibility);
         recyclerView = findViewById(R.id.recycler_key_history);
         Button btnClear = findViewById(R.id.btn_clear_history);
+        ImageButton btnBack = findViewById(R.id.btn_back);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new KeyHistoryAdapter(historyItems);
@@ -42,6 +45,8 @@ public class KeyMonitorActivity extends AppCompatActivity
             historyItems.clear();
             adapter.notifyDataSetChanged();
         });
+        btnBack.setOnClickListener(v -> finish());
+        setupThemeToggle(R.id.btn_theme_toggle);
 
         KeyAccessibilityService.setKeyEventListener(this);
     }
@@ -67,6 +72,8 @@ public class KeyMonitorActivity extends AppCompatActivity
     private void updateServiceStatus() {
         boolean enabled = Utils.isAccessibilityServiceEnabled(this, KeyAccessibilityService.class);
         tvServiceStatus.setText(enabled ? R.string.service_enabled : R.string.service_disabled);
+        tvServiceStatus.setTextColor(getResources().getColor(
+                enabled ? R.color.color_green : R.color.color_red));
         btnOpenService.setVisibility(enabled ? View.GONE : View.VISIBLE);
     }
 
@@ -107,7 +114,10 @@ public class KeyMonitorActivity extends AppCompatActivity
 
     class KeyHistoryAdapter extends RecyclerView.Adapter<KeyHistoryAdapter.ViewHolder> {
         private final List<KeyHistoryItem> items;
-        KeyHistoryAdapter(List<KeyHistoryItem> items) { this.items = items; }
+
+        KeyHistoryAdapter(List<KeyHistoryItem> items) {
+            this.items = items;
+        }
 
         @Override
         public ViewHolder onCreateViewHolder(android.view.ViewGroup parent, int viewType) {
@@ -123,10 +133,14 @@ public class KeyMonitorActivity extends AppCompatActivity
             holder.tvTime.setText(android.text.format.DateFormat.format("HH:mm:ss", item.timestamp));
         }
 
-        @Override public int getItemCount() { return items.size(); }
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
 
         class ViewHolder extends RecyclerView.ViewHolder {
             TextView tvKeyName, tvAction, tvTime;
+
             ViewHolder(View itemView) {
                 super(itemView);
                 tvKeyName = itemView.findViewById(R.id.tv_key_name);

@@ -1,68 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/bg_light">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/accessibility_guide"
-        android:textSize="14sp"
-        android:textColor="@color/text_secondary"/>
+    android:background="@drawable/bg_dashboard">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
 
-        <TextView
-            android:id="@+id/tv_service_status"
-            android:layout_width="0dp"
+        <!-- Top bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/header_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/min_touch"
+                android:layout_height="@dimen/min_touch"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                app:srcCompat="@drawable/ic_back"
+                app:tint="@color/color_accent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="@string/card_key_monitor"
+                android:textColor="@color/color_text"
+                android:textSize="@dimen/text_app_title"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btn_theme_toggle"
+                android:layout_width="@dimen/min_touch"
+                android:layout_height="@dimen/min_touch"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/theme_toggle"
+                app:srcCompat="@drawable/ic_sun"
+                app:tint="@color/color_accent" />
+        </LinearLayout>
+
+        <!-- Status card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <TextView
+                    android:id="@+id/tv_service_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/service_disabled"
+                    android:textColor="@color/color_text"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_open_accessibility"
+                    style="@style/PrimaryButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/open_accessibility" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- List header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/recent_keys"
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_body" />
+
+            <Button
+                android:id="@+id/btn_clear_history"
+                style="@style/GhostButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:text="@string/clear_history" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_key_history"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/gap_small"
             android:layout_weight="1"
-            android:text="@string/service_disabled"
-            android:textColor="@color/error_red"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/btn_open_accessibility"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/open_accessibility"
-            android:background="@drawable/bg_button_nissan"
-            android:textColor="@color/card_white"/>
+            android:background="@drawable/bg_card"
+            android:padding="10dp" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="最近按键事件"/>
-
-        <Button
-            android:id="@+id/btn_clear_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="清空历史"/>
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_key_history"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_card"
-        android:padding="8dp"/>
-
-</LinearLayout>
+</FrameLayout>
